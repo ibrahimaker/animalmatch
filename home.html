@@ -1,120 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oyun Giriş Ekranı</title>
-    <style>
-        body{
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background-image: url('/Assets/Images/home-background.jpg'); /* Arkaplan resmi */
-            background-size: cover;
-            background-position: center;
-        }
-
-        .home-main {
-            padding-top: 10%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        #logo {
-            width: 366px;
-            height: 238px;
-            margin-bottom: 10px;
-        }
-
-        #gameName {
-            font-size: 24px;
-            margin: 10px 0;
-            color: black;
-        }
-        
-        #myAudio {
-            display: none;
-        }
-
-        #speaker {
-            font-size: 30px;
-            cursor: pointer;
-        }
-
-        .button {
-            height: 70px;
-            width:200px;
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
-            font-size: 30px;
-            text-decoration: none;
-            color: #fff;
-            border-radius: 5px;
-            background-image: url('/Assets/Images/button.png');
-            background-size: cover;
-        }
-        .button .text{
-            margin-top: 17px;
-        }
-    </style>
-</head>
-<body>
-    <div class="home-main">
-        <audio id="myAudio" src="/Assets/Audio/Hyperfun.mp3" controls></audio>
-        <span id="speaker" onclick="toggleAudio()">🔊</span>
-        <img id="logo" src="../Assets/Images/logo.png" alt="Oyun Logo">
-        <h2 id="gameName"></h2>
-        
-        <a class="button"  href="/index.html"><p class="text">Oyna</p></a>
-        <a class="button" href="/about.html"><p class="text">Hakkında</p></a>
-        <a class="button" href="javascript:window.location.href = 'http://google.com';"><p class="text">Çıkış</p></a>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Animals Match</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap" rel="stylesheet">
+    <script src="script.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="scoreBoard">
+      <h3>score</h3>
+      <h1 id="score">0</h1>
     </div>
-    <script>
-
-        var audio = document.getElementById("myAudio");
-        var speakerIcon = document.getElementById("speaker");
-
-        window.onload = function() {
-            //playAudio();
-        };
-
-        function playAudio() {
-            audio.play();
-            speakerIcon.innerHTML = "🔊";
-        }
-
-        function pauseAudio() {
-            audio.pause();
-            speakerIcon.innerHTML = "🔇";
-        }
-
-        function muteAudio() {
-            if (audio.muted) {
-                audio.muted = false;
-                speakerIcon.innerHTML = "🔊";
-            } else {
-                audio.muted = true;
-                speakerIcon.innerHTML = "🔇";
-            }
-        }
-
-        function toggleAudio() {
-            if (audio.paused) {
-                playAudio();
-            } else {
-                pauseAudio();
-            }
-        }
-
-        function close_window() {
-            window.close();
-        }
-    </script>
-</body>
+    <div class="grid"></div>
+    <div class="audios">
+        <audio id="swapAudio" src="/Assets/Audio/Swap.mp3" controls></audio>
+        <audio id="selectAudio" src="/Assets/Audio/Select.mp3" controls></audio>
+        <audio id="clearAudio" src="/Assets/Audio/Clear.mp3" controls></audio>
+    </div>
+  </body>
 </html>
+
